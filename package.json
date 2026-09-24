@@ -1,0 +1,7 @@
+{
+  "name": "academia-portal",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node make-pages.cjs"
+  }
+}
