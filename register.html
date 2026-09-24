@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Create Account — AcademiaConnect</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Cpath d='M8 13l8-4 8 4-8 4z' fill='white'/%3E%3C/svg%3E"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css"/><link rel="stylesheet" href="css/auth.css"/><link rel="stylesheet" href="css/responsive.css"/>
+</head>
+<body data-authpage="register">
+<div class="auth-layout">
+    <aside class="auth-brand">
+        <a href="index.html" class="logo">
+            <svg viewBox="0 0 32 32" class="logo-mark"><rect width="32" height="32" rx="8" fill="rgba(255,255,255,.18)"/><path d="M8 13l8-4 8 4-8 4z" fill="#fff"/><path d="M12 16v4c0 1.6 2 2.8 4 2.8s4-1.2 4-2.8v-4" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+            AcademiaConnect</a>
+        <div>
+            <h2>Join the platform 🚀</h2>
+            <p>Assess skills, discover opportunities and collaborate — built for students, faculty, industry and institutions.</p>
+            <ul class="brand-points mt-3">
+                <li><span class="bp-icon">✅</span>Free to register, forever</li>
+                <li><span class="bp-icon">⚡</span>Instant skill-matched recommendations</li>
+                <li><span class="bp-icon">🔐</span>Secure Google or email sign-up</li>
+            </ul>
+        </div>
+        <p style="font-size:12.5px;opacity:.7">© 2025 AcademiaConnect</p>
+    </aside>
+    <main class="auth-form-wrap">
+        <div class="auth-card">
+            <div class="card">
+                <h1>Create your account</h1>
+                <p class="sub">Tell us who you are to personalize your experience</p>
+                <div id="authError"></div>
+                <form id="registerForm" novalidate>
+                    <div class="form-group"><label>Full name <span class="req">*</span></label>
+                        <input class="input" id="name" placeholder="e.g. Rahul Verma" required></div>
+                    <div class="form-group">
+                        <label>I am a… <span class="req">*</span></label>
+                        <div class="role-cards">
+                            <label class="role-card-opt"><input type="radio" name="role" value="student"><span class="r-icon">🎓</span><span>Student</span><small>Learn &amp; get hired</small></label>
+                            <label class="role-card-opt"><input type="radio" name="role" value="academician"><span class="r-icon">👨‍🏫</span><span>Academician</span><small>Faculty member</small></label>
+                            <label class="role-card-opt"><input type="radio" name="role" value="industry"><span class="r-icon">🏭</span><span>Industry</span><small>Company / recruiter</small></label>
+                            <label class="role-card-opt"><input type="radio" name="role" value="institution"><span class="r-icon">🏛️</span><span>Institution</span><small>College / university</small></label>
+                        </div>
+                    </div>
+                    <div class="form-group hidden" id="orgWrap"><label id="orgLabel">Organization name</label>
+                        <input class="input" id="orgName" placeholder="Organization name"></div>
+                    <div class="form-group"><label>Email <span class="req">*</span></label>
+                        <input class="input" type="email" id="email" placeholder="you@example.com" required autocomplete="email"></div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Password <span class="req">*</span></label>
+                            <input class="input" type="password" id="password" placeholder="Min. 6 characters" required autocomplete="new-password"></div>
+                        <div class="form-group"><label>Confirm password <span class="req">*</span></label>
+                            <input class="input" type="password" id="confirmPassword" placeholder="Repeat password" required autocomplete="new-password"></div>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-lg" id="registerBtn" type="submit">Create account</button>
+                </form>
+                <div class="divider">or</div>
+                <a href="login.html" class="btn btn-google btn-block">Continue with Google</a>
+                <p class="auth-foot">Already have an account? <a href="login.html" style="font-weight:700">Login</a></p>
+            </div>
+        </div>
+    </main>
+</div>
+<div id="toast-container" class="toast-container"></div>
+<script type="module" src="js/auth-pages.js"></script>
+</body>
+</html>

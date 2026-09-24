@@ -1,0 +1,36 @@
+// NOT CURRENTLY USED — kept for reference only.
+//
+// Firebase Storage (Cloud Storage) requires the paid Blaze plan to even
+// provision a bucket, so this project uses Cloudinary (free tier, unsigned
+// uploads) for resumes instead — see js/storage.js. If this project is ever
+// upgraded to Blaze and moved to Firebase Storage, these rules are a correct
+// starting point: publish them in Firebase Console → Storage → Rules.
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Resumes: any signed-in user can read (industries/institutions reviewing
+    // an application need this), but only the owning student can upload,
+    // replace, or delete their own resume, and only as a PDF/DOC/DOCX under 5MB.
+    // create/update and delete are split because a delete request has no
+    // request.resource, so the size/type checks below would wrongly block it
+    // if left in a single combined `write` rule.
+    match /resumes/{uid}/{fileName} {
+      allow read: if request.auth != null;
+      allow create, update: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.size < 5 * 1024 * 1024
+        && (request.resource.contentType == 'application/pdf'
+            || request.resource.contentType == 'application/msword'
+            || request.resource.contentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            || request.resource.contentType == 'application/octet-stream');
+      allow delete: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Deny everything else by default.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

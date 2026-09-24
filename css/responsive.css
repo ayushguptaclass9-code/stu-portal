@@ -1,0 +1,42 @@
+@media (max-width:1100px){
+  .panel-grid{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:110px 1fr 48px}
+}
+@media (max-width:992px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-backdrop.show{opacity:1;pointer-events:auto}
+  .dashboard-main{margin-left:0}
+  .hamburger-btn{display:inline-flex}
+  .form-row,.form-row-3{grid-template-columns:1fr}
+}
+@media (max-width:768px){
+  .page-content{padding:18px 14px}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .features-grid,.roles-grid,.steps{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:8px}
+  .section{padding:44px 0}
+  .section-head h2{font-size:25px}
+  .cta-band{padding:36px 22px}
+  .filter-bar{flex-direction:column;align-items:stretch}
+  .filter-bar .input,.filter-bar .select,.search-wrap{width:100%}
+  .tabs{width:100%}
+  .tab-btn{flex:1;padding:8px 10px;text-align:center}
+  .user-name{display:none}
+  .notif-dropdown,.dropdown{width:min(92vw,320px)}
+  .modal-overlay{padding:16px 10px}
+  .bar-row{grid-template-columns:90px 1fr 44px;font-size:12px}
+}
+@media (max-width:480px){
+  .stat-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .stat-card{padding:12px;flex-direction:column;text-align:center;gap:8px}
+  .hero h1{font-size:28px}
+  .hero-actions .btn{width:100%}
+  .stat-cards{grid-template-columns:repeat(2,1fr);gap:12px}
+  .role-cards{grid-template-columns:1fr}
+  .logo{font-size:0}
+  .logo .logo-mark{width:28px;height:28px}
+  .nav-cta{gap:6px}
+  .nav-cta .btn-sm{padding:6px 9px;font-size:12px}
+}
